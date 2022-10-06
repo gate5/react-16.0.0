@@ -8,10 +8,11 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
-    "express": "^4.14.0",
+    "express": "^4.16.0",
     "ignore-styles": "^5.0.1",
     "import-export": "^1.0.1",
-    "node-fetch": "^1.6.3"
+    "node-fetch": "^2.6.7",
+    "@snyk/protect": "latest"
   },
   "scripts": {
     "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
@@ -20,6 +21,9 @@
     "start:prod": "NODE_PATH=../../build/packages react-scripts build && NODE_PATH=../../build/packages NODE_ENV=production node server",
     "build": "NODE_PATH=../../build/packages react-scripts build",
     "test": "NODE_PATH=../../build/packages react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "eject": "react-scripts eject",
+    "prepare": "yarn run snyk-protect",
+    "snyk-protect": "snyk-protect"
+  },
+  "snyk": true
 }
